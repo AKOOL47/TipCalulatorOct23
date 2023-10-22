@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>Tip Calculator</title>
+<style>
+	* {font-size:50px;}
+	body{background-color:lightpink;}
+	.btn{border-radius:12px;}
+	.btn{background-color: #008CBA;} 
+</style>
+<script>
+	function tp()
+	{
+		event.preventDefault();
+		let bill = document.getElementById("bill");
+		let percent = document.getElementById("percent");
+		let people = document.getElementById("people");
+		let ans = document.getElementById("ans");
+
+		if (bill.value == "")
+		{
+			alert("Please Enter Your Bill");
+			ans.innerHTML = "";
+			bill.focus();
+			return;
+		}
+
+		let b = parseFloat(bill.value);
+		if (b <= 0 )
+		{
+			alert("Value Cannot Be 0 or -ve");
+			ans.innerHTML = "";
+			bill.value = "";
+			bill.focus();
+			return;	
+		}
+
+		else if (bill.value.trim() == "")
+		{
+			alert("Blank Spaces Not Allowed");
+			ans.innerHTML = "";
+			bill.value = "";
+			bill.focus();
+			return;
+		}
+
+		else if (bill.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Only Numbers Are Allowed");
+			ans.innerHTML = "";
+			bill.value = "";
+			bill.focus();
+			return;
+		}
+
+
+		if (percent.value == "")
+		{
+			alert("Please Enter Tip Percent");
+			ans.innerHTML = "";
+			percent.focus();
+			return;
+		}
+
+		let p = parseFloat(percent.value);
+		if (p <= 0 )
+		{
+			alert("Value Cannot Be 0 or -ve");
+			ans.innerHTML = "";
+			percent.value = "";
+			percent.focus();
+			return;	
+		}
+
+		else if (percent.value.trim() == "")
+		{
+			alert("Blank Spaces Not Allowed");
+			ans.innerHTML = "";
+			percent.value = "";
+			percent.focus();
+			return;
+		}
+
+		else if (percent.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Only Numbers Are Allowed");
+			ans.innerHTML = "";
+			percent.value = "";
+			percent.focus();
+			return;
+		}
+
+
+		if (people.value == "")
+		{
+			alert("Number Of People Cannot Be Empty")
+			ans.innerHTML = "";
+			people.focus();
+			return;
+		}
+
+		let p1 = parseFloat(people.value);
+		if (p1 <= 0 )
+		{
+			alert("Value Cannot Be 0 or -ve");
+			ans.innerHTML = "";
+			people.value = "";
+			people.focus();
+			return;	
+		}
+
+		else if (people.value.trim() == "")
+		{
+			alert("Blank Spaces Not Allowed");
+			ans.innerHTML = "";
+			people.value = "";
+			people.focus();
+			return;
+		}
+
+		else if (people.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Only Numbers Are Allowed");
+			ans.innerHTML = "";
+			people.value = "";
+			people.focus();
+			return;
+		}
+		
+		let clc = b * (p / 100) / p1;
+		let msg = "Total Tip  = " + " &#8377 "+ clc.toFixed(2)+ " /- " + " Each ";
+		ans.innerHTML = msg;	
+	}
+</script>
+</head>
+<body>
+<center>
+	<h1>Tip Calculator By AK</h1>
+	<form onsubmit="tp()">
+	<input type="text" step="any" placeholder="Enter Bill Amount"  id="bill"  />&#8377
+	<br><br>
+	<input type="text" step="any" placeholder="Enter Tip Percent" id="percent" />%
+	<br><br>
+	<input type="text" step="any" placeholder="Enter No Of People" id="people"/>/
+	<br><br>
+	<input type="submit" value="Calculate" class="btn"/>
+	</form>
+	<h1 id="ans"/>
+</center>
+</body>
+</html>
